@@ -16,6 +16,11 @@ const routes = [
         path: '/hoge',
         name: 'hoge',
         component: () => import('../views/HogeView.vue')
+    },
+    {
+        path: '/sync',
+        name: 'sync',
+        component: () => import('../views/SyncView')
     }
 ]
 

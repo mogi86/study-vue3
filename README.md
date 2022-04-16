@@ -1,5 +1,17 @@
 # study-vue3
 
+## Requirements
+
+- Node 14
+- GO 1.17
+
+## Run API Server
+
+```
+cd go-api-server
+go run main.go
+```
+
 ## Project setup
 ```
 yarn install
