@@ -1,6 +1,7 @@
 <template>
   <button @click="execute">押してね</button>
-  {{ data.result.message }}
+  <div v-if="data.message && data.isStart">{{ data.message }}</div>
+  <div v-else-if="!data.message && data.isStart">メッセージ取得中...</div>
 </template>
 
 <script>
@@ -11,7 +12,9 @@ export default {
   name: "SyncView",
   setup() {
     let data = reactive({
-      'result': ''
+      'isStart': false,
+      'result': '',
+      'message': '',
     })
 
     const hello = () => {
@@ -23,11 +26,15 @@ export default {
     }
 
     const execute = async () => {
+      data.isStart = true
+      data.message = ''
       console.log("start...")
+
       let res = await axios.get("http://localhost:8000/hello")
+
       console.log(res.data)
       console.log("end...")
-      data.result = res.data
+      data.message = res.data.message
     }
 
     return {
