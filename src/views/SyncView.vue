@@ -1,5 +1,5 @@
 <template>
-  <button @click="execute">押してね</button>
+  <button class="btn btn-primary" @click="execute">メッセージ取得</button>
   <div v-if="data.message && data.isStart">{{ data.message }}</div>
   <div v-else-if="!data.message && data.isStart">メッセージ取得中...</div>
 </template>
@@ -47,6 +47,8 @@ export default {
 }
 </script>
 
-<style scoped>
-
+<style scoped lang="scss">
+.btn-primary {
+  background-color: aqua;
+}
 </style>

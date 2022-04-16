@@ -2,8 +2,8 @@
 
 ## Requirements
 
-- Node 14
-- GO 1.17
+- Node >= 14
+- GO >= 1.17
 
 ## Run API Server
 
