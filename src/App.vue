@@ -2,7 +2,9 @@
   <nav>
     <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link> |
-    <router-link to="/hoge">Hoge</router-link>
+    <router-link to="/hoge">Hoge</router-link> |
+    <router-link to="/sync">Sync</router-link> |
+    <router-link to="/watch">Watch</router-link>
   </nav>
   <router-view/>
 </template>

@@ -21,6 +21,11 @@ const routes = [
         path: '/sync',
         name: 'sync',
         component: () => import('../views/SyncView')
+    },
+    {
+        path: '/watch',
+        name: 'watch',
+        component: () => import('../views/WatchView')
     }
 ]
 
