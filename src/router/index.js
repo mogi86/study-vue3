@@ -23,6 +23,11 @@ const routes = [
         component: () => import('../views/SyncView')
     },
     {
+        path: '/sync2',
+        name: 'sync2',
+        component: () => import('../views/SyncView2')
+    },
+    {
         path: '/watch',
         name: 'watch',
         component: () => import('../views/WatchView')
