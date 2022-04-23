@@ -46,10 +46,15 @@ export default {
       ])
     }
 
-    // It seems that `noParallel` also execute two calling api in parallel
-    const noParallel = function fn() {
-      execute()
-      execute2()
+    const noParallel = async () => {
+      data.isStart = true
+      console.log("start...")
+      await axios.get("http://localhost:8000/hello")
+      console.log("end...")
+
+      console.log("start2...")
+      await axios.get("http://localhost:8000/hello2")
+      console.log("end2...")
     }
 
     return {
