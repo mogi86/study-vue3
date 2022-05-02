@@ -23,4 +23,4 @@ jobs:
           start: yarn serve
           browser: chrome
         env:
-          CYPRESS_port: 4222
+          CYPRESS_port: 8080
