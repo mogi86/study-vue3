@@ -22,3 +22,5 @@ jobs:
           build: yarn
           start: yarn serve
           browser: chrome
+        env:
+          CYPRESS_port: 4222
