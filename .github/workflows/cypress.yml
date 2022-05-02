@@ -20,8 +20,8 @@ jobs:
         uses: cypress-io/github-action@v2
         with:
           build: yarn
-          start: yarn serve
+          start: yarn serve -- --port=8081
           browser: chrome
-          wait-on: http://localhost:8080
-          config: baseUrl=http://localhost:8080
+          wait-on: http://localhost:8081
+          config: baseUrl=http://localhost:8081
           wait-on-timeout: 120
