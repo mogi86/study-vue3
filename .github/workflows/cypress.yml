@@ -22,5 +22,6 @@ jobs:
           build: yarn
           start: yarn serve
           browser: chrome
-        env:
-          CYPRESS_port: 8080
+          wait-on: http://localhost:8080
+          config: baseUrl=http://localhost:8080
+          wait-on-timeout: 120
