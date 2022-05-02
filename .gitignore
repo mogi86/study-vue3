@@ -25,3 +25,4 @@ pnpm-debug.log*
 server
 
 /logs
+/tests/e2e/reports
