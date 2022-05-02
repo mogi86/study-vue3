@@ -6,11 +6,19 @@ jobs:
   cypress-run:
     runs-on: ubuntu-latest
     timeout-minutes: 10 # To prevent unnecessary resource consumption
+    strategy:
+      matrix:
+        node: [14]
     steps:
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node }}
       - name: Checkout
         uses: actions/checkout@v2
       - name: Cypress run
         uses: cypress-io/github-action@v2
         with:
+          build: yarn
+          start: yarn serve
           browser: chrome
-          headless: true
