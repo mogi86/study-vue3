@@ -12,12 +12,12 @@ phases:
       - export COMMIT_INFO_AUTHOR="$(git log -1 --pretty=%an)"
       - export COMMIT_INFO_SHA="$(git log -1 --pretty=%H)"
       - export COMMIT_INFO_REMOTE="$(git config --get remote.origin.url)"
-      - npm ci
+      - yarn install
   pre_build:
     commands:
-      - npm run cy:verify
-      - npm run cy:info
+      - yarn cy:verify
+      - yarn cy:info
   build:
     commands:
-      - npm run start:ci &
+      - yarn start:ci &
       - npx cypress run --record
