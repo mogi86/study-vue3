@@ -1,5 +1,7 @@
 version: 0.2
 
+# ref: https://docs.aws.amazon.com/ja_jp/codebuild/latest/userguide/sample-docker.html
+
 # run-as: Linux-user-name
 
 env:
@@ -35,19 +37,20 @@ phases:
       - aws ecr get-login-password --region ap-northeast-1 | docker login --username AWS --password-stdin ${AWS_ACCOUNT_ID}.dkr.ecr.ap-northeast-1.amazonaws.com
       - echo Logging in to Docker Hub...
       - echo $DOCKERHUB_PASS | docker login -u $DOCKERHUB_USER --password-stdin
+      - echo $IMAGE_TAG
   build:
     on-failure: ABORT
     commands:
       - echo Start Build...
-      - docker build -t study-vue3-web -f ./docker/web/Dockerfile .
+      - docker build -t $IMAGE_REPO_NAME:$IMAGE_TAG -f ./docker/web/Dockerfile .
       - docker images
   post_build:
     on-failure: ABORT
     commands:
       - echo Start Post Build...
-      - docker tag study-vue3-web ${IMAGE_REPO_NAME}:latest
+      - docker tag $IMAGE_REPO_NAME:$IMAGE_TAG $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$IMAGE_TAG
       - docker images
-      - docker push ${IMAGE_REPO_NAME}:latest
+      - docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$IMAGE_TAG
 #reports:
 #  report-group-name-or-arn:
 #    files:
