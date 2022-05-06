@@ -13,11 +13,7 @@ phases:
       - export COMMIT_INFO_SHA="$(git log -1 --pretty=%H)"
       - export COMMIT_INFO_REMOTE="$(git config --get remote.origin.url)"
       - yarn install
-  pre_build:
-    commands:
-      - yarn cy:verify
-      - yarn cy:info
   build:
     commands:
-      - yarn start:ci &
-      - npx cypress run --record
+      - yarn serve &
+      - yarn test:e2e
