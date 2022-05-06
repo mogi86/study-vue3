@@ -8,5 +8,4 @@ phases:
       - yarn install
   build:
     commands:
-      - yarn serve &
-      - test:e2e
+      - yarn test:e2e
