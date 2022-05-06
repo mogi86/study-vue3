@@ -6,6 +6,9 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "test:e2e": "vue-cli-service test:e2e",
+    "cy:verify": "cypress verify",
+    "cy:info": "cypress info",
+    "e2e": "npx cypress run",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
