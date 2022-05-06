@@ -40,11 +40,13 @@ phases:
     commands:
       - echo Start Build...
       - docker build -t study-vue3-web -f ./docker/web/Dockerfile .
+      - docker images
   post_build:
     on-failure: ABORT
     commands:
       - echo Start Post Build...
       - docker tag study-vue3-web ${AWS_ACCOUNT_ID}.dkr.ecr.ap-northeast-1.amazonaws.com/${ECR_WEB_NAME}:latest
+      - docker images
       - docker push ${AWS_ACCOUNT_ID}.dkr.ecr.ap-northeast-1.amazonaws.com/${ECR_WEB_NAME}:latest
 #reports:
 #  report-group-name-or-arn:
