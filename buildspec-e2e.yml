@@ -21,3 +21,6 @@ phases:
     commands:
 #      - yarn serve &
       - yarn e2e
+artifacts:
+  files:
+    - '**/*'
