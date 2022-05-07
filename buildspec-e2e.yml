@@ -19,5 +19,5 @@ phases:
       - yarn cy:info
   build:
     commands:
-      - yarn serve &
+#      - yarn serve &
       - yarn e2e
