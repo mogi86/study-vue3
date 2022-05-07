@@ -2,7 +2,8 @@
 
 describe('My First Test', () => {
   it('Visits the app root url', () => {
-    cy.visit('/')
+    const host = Cypress.env('host')
+    cy.visit(host + '/')
     cy.contains('h1', 'Welcome to Your Vue.js App')
   })
 })
