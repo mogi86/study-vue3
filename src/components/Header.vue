@@ -1,14 +1,30 @@
 <template>
   <div>
     {{ message }}
+    {{ hoge }}
   </div>
 </template>
 
-<script setup>
+<script>
 import {ref} from "vue"
 
-const message = ref('This is Header!')
+export default {
+  props: {
+    hoge: {
+      type: String,
+      default: ''
+    },
+    title: String
+  },
+  setup(props) {
+    const message = ref('This is Header!')
+    console.log(props.title)
 
+    return {
+      message
+    }
+  }
+}
 </script>
 
 <style scoped>

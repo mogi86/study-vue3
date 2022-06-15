@@ -1,5 +1,10 @@
 <template>
-  <Header/>
+  <Header
+      hoge="hogehogeeeee"
+      class="test"
+      title="titledayo"
+      :fuga="fugafuga"
+  ></Header>
   <div>
     {{ message }}
   </div>
